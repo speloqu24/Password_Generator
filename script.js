@@ -7,24 +7,31 @@ var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-", ".", "
 // This array stores all array characters, dictated by USERNUMBER, to global memory 
 var passwordPool = []
 
-var generateBtn = document.querySelector("#generate");
 
+var generateBtn = document.querySelector("#generate");
 
 //FUNCTION 
 function passwordGen() {
-  // scoped variable
+
+  // SCOPE VARIABLES INSIDE FUNCTION
+
   var userNumber = prompt("Pick a number between 8 - 128");
   console.log("Number user selected: " + userNumber)
-  if (userNumber >= 8 || userNumber >= 128) {
-    // ask user questions
-    var wantUpper = confirm("Click confirm to include upper case chars"); // true OR false
+
+  if (userNumber >= 8 || userNumber <= 128) {
+    var wantUpper = confirm("Click confirm to include upper case chars");
     if (wantUpper === true) {
       passwordPool.push(upperCase)
     }
+
+    // CONFIRM WITH USER TO INCLUDE LOWERCASE
     var wantLower = confirm("Click confirm to include lower case chars");
     if (wantLower === true) {
       passwordPool.push(lowerCase)
     }
+
+    // CONFIRM WITH USER TO INCLUDE NUMBERS
+
     var wantNumber = confirm("Click confirm to include numbers chars");
     if (wantNumber === true) {
       passwordPool.push(number)
@@ -38,10 +45,11 @@ function passwordGen() {
     console.log(passwordPool)
 
     // This for loop is looping through the variable arrays that have been pushed to the passwordPool
+    var result = ""
 
     for (var i = 0; i < userNumber; i++) {
       var password = passwordPool[Math.floor(Math.random() * passwordPool.length)];
-      console.log(password[i])
+      result = result += password[i]
     }
 
     // 4) have the random password stored to a variable (only length that user picked "userNumber")  
@@ -50,6 +58,7 @@ function passwordGen() {
 
     // if "userNumber" is invalid, prompt the user again
 
+    return result;
 
   }
 }
