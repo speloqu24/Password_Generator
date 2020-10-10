@@ -7,62 +7,58 @@ var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-", ".", "
 // This array stores all array characters, dictated by USERNUMBER, to global memory 
 var passwordPool = []
 
-
 var generateBtn = document.querySelector("#generate");
 
-//FUNCTION 
+//FUNCTION DECLARATION
 function passwordGen() {
 
-  // SCOPE VARIABLES INSIDE FUNCTION
+  // SCOPE VARIABLE
+  var userNumber = parseInt(prompt("Choose a number between 8 - 128 to generate your password!"));
+  if (userNumber < 8 || userNumber > 128) { alert("The value you entered is incorrect. Please try again."); return passwordGen(); }
 
-  var userNumber = prompt("Pick a number between 8 - 128");
-  console.log("Number user selected: " + userNumber)
-
-  if (userNumber >= 8 || userNumber <= 128) {
-    var wantUpper = confirm("Click confirm to include upper case chars");
-    if (wantUpper === true) {
-      passwordPool.push(upperCase)
-    }
-
-    // CONFIRM WITH USER TO INCLUDE LOWERCASE
-    var wantLower = confirm("Click confirm to include lower case chars");
-    if (wantLower === true) {
-      passwordPool.push(lowerCase)
-    }
-
-    // CONFIRM WITH USER TO INCLUDE NUMBERS
-
-    var wantNumber = confirm("Click confirm to include numbers chars");
-    if (wantNumber === true) {
-      passwordPool.push(number)
-    }
-    var wantSpecial = confirm("Click confirm to include special chars");
-    if (wantSpecial === true) {
-      passwordPool.push(specialChar)
-    }
-
-    // displays all of of the arrays of chars that are true
-    console.log(passwordPool)
-
-    // This for loop is looping through the variable arrays that have been pushed to the passwordPool
-    var result = ""
-
-    for (var i = 0; i < userNumber; i++) {
-      var password = passwordPool[Math.floor(Math.random() * passwordPool.length)];
-      result = result += password[i]
-    }
-
-    // 4) have the random password stored to a variable (only length that user picked "userNumber")  
-    // create new variable that stores the value of userNumber 
-    // 5) display the password to the front end
-
-    // if "userNumber" is invalid, prompt the user again
-
-    return result;
-
+  var wantUpper = confirm("Click confirm to include upper case chars");
+  if (wantUpper === true) {
+    passwordPool = passwordPool.concat(upperCase);
   }
-}
 
+  // CONFIRM WITH USER TO INCLUDE LOWERCASE
+  var wantLower = confirm("Click confirm to include lower case chars");
+  if (wantLower === true) {
+    passwordPool = passwordPool.concat(lowerCase)
+  }
+
+  // CONFIRM WITH USER TO INCLUDE NUMBERS
+  var wantNumber = confirm("Click confirm to include numbers chars");
+  if (wantNumber === true) {
+    passwordPool = passwordPool.concat(number)
+  }
+
+  // CONFIRM WITH USER TO SPECIAL CHARACTERS
+  var wantSpecial = confirm("Click confirm to include special chars");
+  if (wantSpecial === true) {
+    passwordPool = passwordPool.concat(specialChar)
+  }
+
+
+  if (wantUpper == false && wantLower == false && wantNumber == false && wantSpecial == false) {
+    alert("not accurate selection")
+    return passwordGen();
+  }
+
+  // displays all of the arrays of chars that are true
+  console.log(passwordPool)
+
+  // This for loop is looping through the variable arrays that have been pushed to the passwordPool
+  var result = ""
+
+  for (var i = 0; i < userNumber; i++) {
+    result = result += passwordPool[Math.floor(Math.random() * passwordPool.length)];
+  }
+  // if "userNumber" is invalid, prompt the user again
+
+  return result;
+
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -72,9 +68,7 @@ function writePassword() {
   passwordText.value = password;
 }
 
-
-// Assignment Code
-
+// Assignment Code 
 writePassword(password)
 
 
