@@ -2,19 +2,24 @@
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "^", "_", "`", "{", "|", "}", "~"]
+var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "^", "_", "`", "{", "|", "}", "~"];
 
-// This array stores all array characters, dictated by USERNUMBER, to global memory 
-var passwordPool = []
+// This array stores all array characters, dictated by passwordLength, to global memory
+var passwordPool = [];
 
 var generateBtn = document.querySelector("#generate");
 
-//FUNCTION DECLARATION
+//FUNCTION DECLARATION & SCOPE VARIABLES
 function passwordGen() {
 
-  // SCOPE VARIABLE
-  var userNumber = parseInt(prompt("Choose a number between 8 - 128 to generate your password!"));
-  if (userNumber < 8 || userNumber > 128) { alert("The value you entered is incorrect. Please try again."); return passwordGen(); }
+  // Prompting the user to select a number for password length 
+  var passwordLength = parseInt(prompt("Choose a number between 8 - 128 to generate your password!"));
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("The value you entered is incorrect. Please try again."); return passwordGen();
+  } else {
+    alert("You've chosen an in accurate value")
+    passwordGen();
+  }
 
   var wantUpper = confirm("Click confirm to include upper case chars");
   if (wantUpper === true) {
@@ -24,37 +29,35 @@ function passwordGen() {
   // CONFIRM WITH USER TO INCLUDE LOWERCASE
   var wantLower = confirm("Click confirm to include lower case chars");
   if (wantLower === true) {
-    passwordPool = passwordPool.concat(lowerCase)
+    passwordPool = passwordPool.concat(lowerCase);
   }
 
   // CONFIRM WITH USER TO INCLUDE NUMBERS
   var wantNumber = confirm("Click confirm to include numbers chars");
   if (wantNumber === true) {
-    passwordPool = passwordPool.concat(number)
+    passwordPool = passwordPool.concat(number);
   }
 
   // CONFIRM WITH USER TO SPECIAL CHARACTERS
   var wantSpecial = confirm("Click confirm to include special chars");
   if (wantSpecial === true) {
-    passwordPool = passwordPool.concat(specialChar)
+    passwordPool = passwordPool.concat(specialChar);
   }
 
 
   if (wantUpper == false && wantLower == false && wantNumber == false && wantSpecial == false) {
-    alert("not accurate selection")
+    alert("not accurate selection");
     return passwordGen();
   }
 
   // displays all of the arrays of chars that are true
-  console.log(passwordPool)
+  console.log(passwordPool);
 
   // This for loop is looping through the variable arrays that have been pushed to the passwordPool
-  var result = ""
-
+  var result = "";
   for (var i = 0; i < userNumber; i++) {
     result = result += passwordPool[Math.floor(Math.random() * passwordPool.length)];
   }
-  // if "userNumber" is invalid, prompt the user again
 
   return result;
 
@@ -69,7 +72,7 @@ function writePassword() {
 }
 
 // Assignment Code 
-writePassword(password)
+writePassword();
 
 
 // Add event listener to generate button
