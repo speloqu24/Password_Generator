@@ -14,5 +14,5 @@ The main function that runs is the "passwordGen" function. This function runs al
 
 # Screenshots
 
-
+<img src="Assets/ScreenShots/(22)result.png" width = "500">
 
