@@ -14,9 +14,9 @@ The main function that runs is the "passwordGen" function. This function runs al
 
 # Screenshots
 
-<img src="Assets/ScreenShots/InitialScreen.png" width = "500">
-<img src="Assets/ScreenShots/IncludeLowercase.png" width = "500">
-<img src="Assets/ScreenShots/IncludeUppercase.png" width = "500">
+<img src="Assets/ScreenShots/PickNumber.png" width = "500">
+<img src="Assets/ScreenShots/LowerCase.png" width = "500">
+<img src="Assets/ScreenShots/UpperCase.png" width = "500">
 <img src="Assets/ScreenShots/IncludeNumbers.png" width = "500">
-<img src="Assets/ScreenShots/IncludeSpecialCharacters.png" width = "500">
-<img src="Assets/ScreenShots/(22)result.png" width = "500">
+<img src="Assets/ScreenShots/SpecialCharacters.png" width = "500">
+<img src="Assets/ScreenShots/22result.png" width = "500">
