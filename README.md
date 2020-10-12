@@ -16,3 +16,4 @@ The main function that runs is the "passwordGen" function. This function runs al
 
 <img src="Assets/ScreenShots/InitialScreen.png" width = "500">
 
+
