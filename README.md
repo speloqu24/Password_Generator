@@ -12,7 +12,7 @@ The passwordPool array is then looped for a final result.
 
 The main function that runs is the "passwordGen" function. This function runs all of the scope variables, confirms, conditions and loops needed to create a final result to the user. 
 
-# Screenshots
+# Screenshots-
 
 <img src="Assets/ScreenShots/PickNumber.png" width = "500">
 <img src="Assets/ScreenShots/LowerCase.png" width = "500">
