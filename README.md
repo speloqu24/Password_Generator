@@ -19,4 +19,4 @@ The main function that runs is the "passwordGen" function. This function runs al
 <img src="Assets/ScreenShots/UpperCase.png" width = "500">
 <img src="Assets/ScreenShots/IncludeNumbers.png" width = "500">
 <img src="Assets/ScreenShots/SpecialCharacters.png" width = "500">
-<img src="Assets/ScreenShots/22result.png" width = "500">
+<img src="Assets/ScreenShots/22Result.png" width = "500">
