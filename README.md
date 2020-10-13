@@ -12,6 +12,11 @@ The passwordPool array is then looped for a final result.
 
 The main function that runs is the "passwordGen" function. This function runs all of the scope variables, confirms, conditions and loops needed to create a final result to the user. 
 
+# Error Conditioning
+
+Throughout the JS I have placed a few conditions to run for errors. One of those conditions is if the user doesn't choose anything to be included in their password, if this is the case the alert "Please enter a password criteria" will pop up! Another conidition is one to ensure that there will be at least one character from the selected criteria included. Without this we run the chance of including many of the same items in a single array. 
+
+
 # Screenshots-
 
 <img src="Assets/ScreenShots/PickNumber.png" width = "500">
