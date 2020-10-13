@@ -1,5 +1,7 @@
 # Project Objective
 
+Link: https://speloqu24.github.io/User_Criteria_Generator/
+
 The main objective of this project was to create a password application that provided the user with a clean, easy interface used to generate a randomized password based off of the criteria they decide. 
 
 # Variable Declaration & Arrays
